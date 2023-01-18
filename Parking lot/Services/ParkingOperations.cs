@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Parking_lot.Modals;
+using Parking_lot.Constants;
+
 
 namespace Parking_lot.Services
 {
@@ -11,11 +13,11 @@ namespace Parking_lot.Services
     {   
         List<Slot> parkingSlots= new List<Slot>();
         List<Ticket> parkingTicketsIssued = new List<Ticket>();
-
-        int twoWheelerLimit = 0;
+        
+        int twoWheelerLimit = 0;    
         int fourWheelerLimit = 0;
         int heavyWheelerLimit = 0;
-
+        
         public ParkingOperations(int TwoWheelerLimit, int FourWheelerLimit, int HeavyWheelerLimit)
         {            
             twoWheelerLimit = TwoWheelerLimit;
@@ -56,10 +58,10 @@ namespace Parking_lot.Services
         {
 
             if (checkFlag)
-            {   Console.WriteLine($"Your TicketID :  {ticket.TicketId} \nYour Vehicle Number :  {ticket.VehicleNumber} \nYour Slot :  {ticket.SlotID} \nIn-Time:{ticket.InTime}");
-                if (ticket.OutTime == "")
+            {   Console.WriteLine($"Your TicketID :  {ticket.TicketId} \nYour Vehicle Number :  {ticket.vehicle.VehicleNumber} \nYour Slot :  {ticket.SlotID} \nIn-Time:  {ticket.InTime}");
+                if (ticket.OutTime == null)
                 {
-                    ticket.OutTime = DateTime.Now.ToString("h:mm:ss tt");
+                    ticket.OutTime = DateTime.Now.TimeOfDay;
                     Console.WriteLine("Out-Time:  " + ticket.OutTime + "\n");
                 }
                 else
@@ -70,7 +72,7 @@ namespace Parking_lot.Services
             }
             else
             {
-                Console.WriteLine($"Your TicketID :  {ticket.TicketId} \nYour Vehicle Number :  {ticket.VehicleNumber} \nYour Slot :  {ticket.SlotID} \nIn-Time:{ticket.InTime}\n");
+                Console.WriteLine($"Your TicketID :  {ticket.TicketId} \nYour Vehicle Number :  {ticket.vehicle.VehicleNumber} \nYour Slot :  {ticket.SlotID} \nIn-Time:  {ticket.InTime}\n");
             }
         }
 
@@ -112,6 +114,11 @@ namespace Parking_lot.Services
 
         public string NearestSlot(VechicleType type)
         {
+            if (!Enum.IsDefined(typeof(VechicleType), type))
+            {
+                
+                return "error";
+            }
             var nearestSlot = parkingSlots.Where(slot => slot.VehicleType == type && slot.Avalibility==true ).FirstOrDefault();
             if(nearestSlot != null)
             {
@@ -122,26 +129,36 @@ namespace Parking_lot.Services
             return "";
         }
 
-        public void NewVechicleData(VechicleType type,string slotID)
+        public void CreatingTicket(VechicleType type,string slotID)
         {
             if (slotID == "")
             {
                 Console.WriteLine("No Slots");
                 return;
             }
+
+            if (slotID == "error")
+            {
+                Console.WriteLine("Invalid Input!!");
+                return;
+            }            
             
             Console.Write("Enter the Vehicle number : ");
-            string VehicleNumber = Console.ReadLine();
-            while (VehicleNumber == "")
+            string vehicleNumber = Console.ReadLine();
+            
+            while (String.IsNullOrWhiteSpace(vehicleNumber))
             {
                 Console.WriteLine("No value entered,please try again");
-                VehicleNumber = Console.ReadLine();
+                vehicleNumber = Console.ReadLine();
             }
 
+            Vehicle vehicle = new Vehicle();
+            vehicle.VehicleType = type;
+            vehicle.VehicleNumber = vehicleNumber;
+
             Ticket createTicket = new Ticket();
-            createTicket.VehicleNumber = VehicleNumber;
-            createTicket.VehicleType = type;
             createTicket.SlotID = slotID;
+            createTicket.vehicle = vehicle;
             parkingTicketsIssued.Add(createTicket);           
             Console.WriteLine("Ticket is created !! \n");
             PrintTicket(createTicket, false);
@@ -166,36 +183,18 @@ namespace Parking_lot.Services
 
         public void ParkVehicle()
         {
-            Console.WriteLine("Enter the car type :\n");
-            Console.WriteLine("1. Two Wheeler");
-            Console.WriteLine("2. Four Wheeler");
-            Console.WriteLine("3. Heavy Vehicle");
+            Console.WriteLine("Enter the car type :\n\n1. Two Wheeler \n2. Four Wheeler\n3. Heavy Vehicle\n");
             Console.Write("Your Selection :  ");
-            int SelectedCarType = Convert.ToInt16(Console.ReadLine());
 
-            switch (SelectedCarType)
-            {
-                case 1:
-                    NewVechicleData(VechicleType.TwoWheeler,NearestSlot(VechicleType.TwoWheeler));
-                    break;
-                case 2:
-                    NewVechicleData(VechicleType.FourWheeler,NearestSlot(VechicleType.FourWheeler));
-                    break;
-                case 3:
-                    NewVechicleData(VechicleType.HeavyWheeler,NearestSlot(VechicleType.HeavyWheeler));                    
-                    break;
-                default:
-                    Console.WriteLine("-----Invalid Selection-----");
-                    break;
-
-            }
+            VechicleType selectedOption = (VechicleType)Enum.Parse(typeof(VechicleType), Console.ReadLine());
+            CreatingTicket(selectedOption, NearestSlot(selectedOption));
         }
 
         public void UnPackVehicle()
         {
             Console.Write("Enter the Ticket Id :  ");
             string ticketId = Console.ReadLine();
-            var checkingExistance = parkingTicketsIssued.Where(ticket=> (ticket.TicketId==ticketId && ticket.OutTime=="")?true:false).Any();
+            bool checkingExistance = parkingTicketsIssued.Any(ticket => (ticket.TicketId==ticketId && ticket.OutTime==null));
             
             if (checkingExistance)
             {
