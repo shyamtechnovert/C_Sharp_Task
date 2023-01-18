@@ -11,9 +11,11 @@ namespace Parking_lot.Services
     {   
         List<Slot> parkingSlots= new List<Slot>();
         List<Ticket> parkingTicketsIssued = new List<Ticket>();
-        
-        
-        
+
+        int twoWheelerLimit = 0;
+        int fourWheelerLimit = 0;
+        int heavyWheelerLimit = 0;
+
         public ParkingOperations(int TwoWheelerLimit, int FourWheelerLimit, int HeavyWheelerLimit)
         {            
             twoWheelerLimit = TwoWheelerLimit;
