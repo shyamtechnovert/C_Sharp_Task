@@ -1,0 +1,43 @@
+.nav-img {
+  width: 155px;
+  position: relative;
+  top: 20px;
+  right: 10px;
+  margin-bottom: 10px;
+}
+
+.nav-profile-img {
+  width: 63px;
+}
+
+.font-color,
+.welcome-text {
+  color: #00b1fc;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.title-lines {
+  line-height: 0.8;
+  position: relative;
+  top: 19px;
+}
+
+.welcome {
+  display: inline;
+  font-size: 24px;
+  color: grey;
+}
+
+.welcome p {
+  position: relative;
+  bottom: -36px;
+  right: 5px;
+  display: inline;
+}
+
+.nav-intro {
+  margin: -8px 19px;
+  border-bottom: 1px solid lightgrey;
+  padding: 13px;
+}

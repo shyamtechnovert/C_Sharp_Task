@@ -1,0 +1,15 @@
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\bin\Debug\net6.0\Parking lot.exe
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\bin\Debug\net6.0\Parking lot.deps.json
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\bin\Debug\net6.0\Parking lot.runtimeconfig.json
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\bin\Debug\net6.0\Parking lot.dll
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\bin\Debug\net6.0\Parking lot.pdb
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\Parking lot.csproj.AssemblyReference.cache
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\Parking lot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\Parking lot.AssemblyInfoInputs.cache
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\Parking lot.AssemblyInfo.cs
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\Parking lot.csproj.CoreCompileInputs.cache
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\Parking lot.dll
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\refint\Parking lot.dll
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\Parking lot.pdb
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\Parking lot.genruntimeconfig.cache
+C:\Users\Shyam\Desktop\Developement\Internship\tecnovert\C sharp\Parking lot\Parking lot\obj\Debug\net6.0\ref\Parking lot.dll

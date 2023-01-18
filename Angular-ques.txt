@@ -1,0 +1,25 @@
+What is angular ? 
+
+Angular is a development platform, built on TypeScript. It is a component based framework which helps in 
+bulding scablable web applications
+
+
+
+
+Why was angular introduced ?
+
+as the logic of one's website grew, the code became hard to maintain. also jquery doesnt support data handling across views.
+
+ 
+
+Advantages of angular over js ?
+
+-  AngularJS automatically handles JavaScript code suitable for each browser.
+-  Angular code can be tested using karma files and spec.ts files in the folder 
+-  It supports data binding 
+-  Debugging is easy
+
+
+What are pipes ?
+
+Pipes are a feature built into Angluar which basically allows us to transform output in your template.

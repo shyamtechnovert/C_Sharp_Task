@@ -1,0 +1,165 @@
+1. What is C Sharp ?
+
+    C# is a general-purpose, high-level programming language.
+
+2. Why is C Sharp preferred over other language or advantages of C Sharp?
+    
+    - Fast develeopment time 
+    - high Scalability
+    - Object - oriented 
+    - community
+
+3. What is a namespace?
+    A namespace is a declarative region that provides a scope to the identifier and class 
+
+4. Typecasting ?
+    - Implicit Casting - smaller type to larget type (easy)
+            char -> int -> long -> float -> double
+    - Explicit Casting - larget type to smaller type (hard and force)
+            double -> float -> long -> int -> char
+
+5. What is OOPs ?
+    programming based on the concept of "objects", which can contain data and code.
+
+6. What are the advantages of using oops concept?
+
+    - clean code 
+    - reusablity 
+    - fast and easy to write and debug
+    - short develeopment time
+
+7. What is a class ?
+    Class is the template or blueprint of the object.
+
+8. What is a object ?
+    Object is the instance of a class. Objects can correspond to real-world objects or an abstract entity
+
+9. What is a method ?
+    They are functions defined inside the class
+
+10 . Identifiers ?
+    - public - access to all
+    - private - only accessible within the same class
+    - protected - only accessible with in the class and its sub-classes
+
+11. What is encapsulation?
+    - It is used to make senstitive data hidden from users
+
+    concepts in it -
+    - get
+    - set
+
+    example - 
+        class Person
+        {
+            private string name; // field
+
+            public string Name   // property
+            {
+                get { return name; }   // get method
+                set { name = value; }  // set method
+            }
+        }
+    
+    use:-
+        - security
+        - restriction of data
+    
+12. abstract class ?
+    - we cannot create a object directly using a abstract class . we need to inherit it from other class to access it
+
+13. What is Interfaces ?
+    - Like a class but we cant call any methods in it 
+    - Methods in interfaces are just named but does not perform any 
+
+
+14. What is enum ?
+    - collection of constants is called enums
+
+15. what is value type and refernce type ?
+    value type - the variable holds the value 
+    reference type - the variable holds the location of the data
+
+16. Difference between GetType and typeof ?
+    GetType is evaluated at runtime and typeof at compile time
+
+17. What is a Struct ?
+    It is like a class but 
+        - It is a value type
+        - cant perform inheritance 
+
+    Ex - 
+        struct Coordinate
+        {
+            public int x;
+            public int y;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Syntax 
+
+For Reading :-
+    Cosole.ReadLine() - returns a string ( convert the values like in python)
+
+For Writing :-
+    Cosole.WriteLine() - Content with new line
+    Console.Write() - Content with same line
+
+Comment -
+
+    multi line - /* */
+    single line - //
+
+TO ADD few things in string -
+
+    \n - new line
+    \t - tab space
+    \b - backspace
+
+foreach loop :- 
+    string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+    foreach (string i in cars) 
+    {
+    Console.WriteLine(i);
+    }
+
+Create a array :
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};

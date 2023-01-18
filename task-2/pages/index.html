@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Directory</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <section class="nav navbar-expand-lg container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <img src="../assets/saketa-logo.svg" alt="">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbar-expand-lg" id="navbarText">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <div class="nav-link title-lines">
+                    <p class="font-color">Employee Directory</p>
+                    <p>The Ultimate People Directory Experience</p>
+                  </div>
+                </li>
+              </ul>
+              <span class="navbar-text welcome">
+                <p> <p class="welcome-text">Welcome,</p>Shyam</p>
+                <img src="../assets/mine.jpg" alt="">
+              </span>
+            </div>
+          </nav>
+    </section>
+    <button onclick="displayFilters()" class="filter-display"><i class="bi bi-arrow-right-square-fill"></i>  Apply Filters</button>
+    <!-- Display Section -->
+    <section id="display">
+        <div class="d-flex ">
+            <div class="p-2 left-display" id="wrapper">
+                <div class="trial">
+                    <h6>Departments</h6>
+                    <ul>
+                        <li ><button  name="department" >IT</button></li>
+                        <li ><button  name="department" >Human Resources</button></li>
+                        <li ><button  name="department" >MD</button></li>
+                        <li ><button  name="department" >Sales</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6>Offices</h6>
+                    <ul>
+                        <li> <button name="office">Seattle</button> </li>
+                        <li> <button name="office">India</button> </li>
+                    </ul>
+                </div>
+                <div>
+                    <h6>Job Titles</h6>
+                    <ul>
+                        <li> <button name="job_title">SharePoint Practice Head</button></li>
+                        <li> <button name="job_title">.Net Devlopement</button> </li>
+                        <li> <button name="job_title">Recruiting Expert</button> </li>
+                        <li class="li-hide" > <button  name="job_title">BI Devlopement</button></li>
+                        <li class="li-hide" > <button  name="job_title">Business Analyst</button> </li>
+                        <li class="li-color" onclick="liDisplay()"><a href="#">View More</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-1 right-display container-fluid">
+                <div>
+                    <button type="button" class="btn btn-primary person-button"><i class="bi bi-person-fill"></i></button> 
+                    <button type="button" onclick="jsHideButtons()" class="btn btn-primary person-button hidden"><i class="bi bi-person-fill"></i></button>
+                    <div id="buttons">
+                                               
+                    </div>
+                </div>
+                
+                <div class="container-fluid">
+                    <div class="search-box">                        
+                        <div>
+                            <p>Search</p>
+                            <input type="text" placeholder="Enter any keyword" id="search-bar" oninput="searchdata()">
+                        </div>
+                        
+                        <div ><button id="clear-button" onclick="clearInputData()" class="btn btn-success">Clear</button></div>
+                        <div >
+                            <p class="filter-p">Filter by </p>
+                            <div class="btn-group">
+                                <select name="filter" id="selected">
+
+                                <option class="dropdown-item" selected href="#" value="name">Preferred Name</option>
+                                <option class="dropdown-item" href="#" value="fname">First Name</option>
+                                <option class="dropdown-item" href="#" value="lname">Last Name</option>                              
+                                <option class="dropdown-item" href="#" value="job_title">Title</option> 
+                                <option class="dropdown-item" href="#" value="department">Department</option>                              
+                                
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Button trigger modal -->
+                        <div >
+                            <button type="button"  class="btn color" data-toggle="modal" data-target="#addemploye">
+                                Add Employee
+                            </button>
+                        </div>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="addemploye" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+                                <button type="button" onclick="clearInputField()" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="myForm">
+                                        <div>
+                                            <label for="firstName" class="form-label">First Name</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text" ><i class="bi bi-person-fill"></i></span>
+                                                <input type="text" name="fname" class="form-control" placeholder="Enter FirstName" required>
+                                            </div>
+                                        </div>
+                    
+                                        <div>
+                                            <label for="lastName" class="form-label">Last Name</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text" ><i class="bi bi-person-fill"></i></span>
+                                                <input type="text" name="lname"class="form-control" placeholder="Enter LastName" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <label for="Image">Upload your pic</label>  
+                                        <div class="input-group">
+                                            
+                                            <div class="custom-file">
+                                              <input type="file" id="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                                              <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                            </div>
+                                            
+                                        </div>
+            
+                                        <div>
+                                            <label for="email" class="form-label">Email</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text" ><i class="bi bi-envelope-fill"></i></span>
+                                                <input type="email" name="email" class="form-control" placeholder="Enter Email" >
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <label for="jobtitle" class="form-label">Job Title</label>
+                                            <div class="input-group">
+                                                <select name="job_title" required>
+                                                    <option value="">None</option>
+                                                    <option class="dropdown-item"  href="#" value="SharePoint Practice Head">SharePoint Practice Head</option>
+                                                    <option class="dropdown-item" href="#" value=".Net Devlopement">.Net Devlopement</option>
+                                                    <option class="dropdown-item" href="#" value="Recruiting Expert">Recruiting Expert</option>                              
+                                                    <option class="dropdown-item" href="#" value="BI Devlopement">BI Devlopement</option> 
+                                                    <option class="dropdown-item" href="#" value="Business Analyst">Business Analyst</option>                              
+                                                    
+                                                  </select>
+                                            </div>
+                                        </div>          
+                    
+                                        
+                    
+                                        <div>
+                                            <label for="office" class="form-label">Office</label>
+                                            <div class="input-group">
+                                                <select name="office" required>
+                                                    <option value="">None</option>
+                                                    <option class="dropdown-item" href="#" value="Seattle">Seattle</option>
+                                                    <option class="dropdown-item" href="#" value="India">India</option>                                                                      
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                    
+                                        <div>
+                                            <label for="dept" class="form-label">Department</label>
+                                            <div class="input-group">
+                                                <select name="department" required>
+                                                    <option value="">None</option>
+                                                    <option class="dropdown-item" href="#" value="IT">IT</option>
+                                                    <option class="dropdown-item" href="#" value="Human Resources">Human Resources</option> 
+                                                    <option class="dropdown-item" href="#" value="MD">MD</option> 
+                                                    <option class="dropdown-item" href="#" value="Sales">Sales</option>                                                                      
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                    
+                                        <div>
+                                            <label for="phone" class="form-label">Phone No</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi bi-phone-fill"></i></span>
+                                                <input type="number" name="ph_no" class="form-control" placeholder="Enter PhoneNumber" required>
+                                            </div>
+                                        </div>
+                    
+                                        <div>
+                                            <label for="skype" class="form-label">Skype Id</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi bi-skype"></i></span>
+                                                <input type="text" name="skype" class="form-control" placeholder="Enter SkypeId">
+                                            </div>
+                                        </div>
+
+                                        <input type="submit" id="btn" onclick="add()" class="btn btn-outline-dark" >
+                                    </form>
+                                </div>                                
+                            </div>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+
+                <div>
+                    <p class="note"><b>Note:</b> Please use the advanced filter options to refine your results</p>
+                </div>
+
+                <!-- Employee display section -->
+                <div class="employeeBox container-fluid">
+                    <div id="emp" class="row empSection">
+                                        
+                                          
+                    </div>
+                </div>
+            </div>            
+        </div>
+        
+    </section>
+
+    <section id="modal-section-data">
+    
+
+    </section>
+
+    
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
+
