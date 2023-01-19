@@ -1,7 +1,7 @@
 ﻿
-using Parking_lot;
-using Parking_lot.Services;
-using System.Net.Sockets;
+
+using ParkingLot.Services;
+
 
 public class Program
 {
@@ -42,7 +42,7 @@ public class Program
                     Operations.UnPackVehicle();
                     break;
                 case 4:
-                    Operations.HistoryOfTickets();
+                    HistoryOfTickets.LogOfTickets(Operations);
                     break;
                 case 5:
                     Environment.Exit(0);

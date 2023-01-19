@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Parking_lot.Modals;
-using Parking_lot.Constants;
+﻿
+using ParkingLot.Modals;
+using ParkingLot.Constants;
 
 
-namespace Parking_lot.Services
+namespace ParkingLot.Services
 {
     public class ParkingOperations
     {   
-        List<Slot> parkingSlots= new List<Slot>();
-        List<Ticket> parkingTicketsIssued = new List<Ticket>();        
+        public List<Slot> parkingSlots= new List<Slot>();
+        public List<Ticket> parkingTicketsIssued = new List<Ticket>();        
         
         public ParkingOperations(int TwoWheelerLimit, int FourWheelerLimit, int HeavyWheelerLimit)
         {            
@@ -66,43 +62,7 @@ namespace Parking_lot.Services
             {
                 Console.WriteLine($"Your TicketID :  {ticket.TicketId} \nYour Vehicle Number :  {ticket.vehicle.VehicleNumber} \nYour Slot :  {ticket.SlotID} \nIn-Time:  {ticket.InTime.ToString("T")}\n");
             }
-        }
-
-        public  void HistoryOfTickets()
-        {
-            var checkedOutTickets = parkingTicketsIssued.Where(ticket => ticket.TicketId != "");
-            var notCheckedOutTickets = parkingTicketsIssued.Where(ticket => ticket.TicketId == "");
-
-
-            if(notCheckedOutTickets.Count() > 0)
-            {
-                Console.WriteLine("Not-Checked Out Tickets!! :- \n");
-                foreach(Ticket ticket in notCheckedOutTickets)
-                {
-                    PrintTicket(ticket,false);
-                }
-            }
-            else
-            {
-                Console.WriteLine("No Not-Checked Out Tickets!! \n");
-            }
-
-            if(checkedOutTickets.Count() > 0)
-            {
-                Console.WriteLine("Checked Out Tickets :- \n");
-                foreach(Ticket ticket in checkedOutTickets)
-                {
-                    PrintTicket(ticket,true);
-                }
-            }
-            else
-            {
-                Console.WriteLine("No Checked Out Tickets!! \n");
-            }
-
-
-            
-        }
+        }        
 
         public string? NearestSlot(VechicleType type)
         {

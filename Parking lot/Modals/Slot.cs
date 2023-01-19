@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Parking_lot.Constants;
+﻿using ParkingLot.Constants;
 
 
-namespace Parking_lot.Modals
+namespace ParkingLot.Modals
 {
     public class Slot
     {

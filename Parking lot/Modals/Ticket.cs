@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Parking_lot.Constants;
+﻿
+using ParkingLot.Constants;
 
-namespace Parking_lot.Modals
+namespace ParkingLot.Modals
 {
     
 
     public class Ticket
     {
-        
         public string SlotID { get; set; } = "";
         public DateTime InTime { get; set; } = DateTime.Now;
         public DateTime OutTime { get; set; } = DateTime.Parse("00:00:00");

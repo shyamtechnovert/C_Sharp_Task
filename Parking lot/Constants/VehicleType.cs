@@ -1,4 +1,4 @@
-﻿namespace Parking_lot.Constants
+﻿namespace ParkingLot.Constants
 {
     public enum VechicleType
     {
