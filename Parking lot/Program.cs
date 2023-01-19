@@ -7,6 +7,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        
         Console.WriteLine("Initializing a parking lot.\n");
 
         Console.WriteLine("No of spaces to be allotted for Two Wheelers : ");
@@ -19,7 +20,7 @@ public class Program
         int heavyWheelerLimit = Convert.ToInt16(Console.ReadLine());
 
         ParkingOperations Operations = new ParkingOperations(twoWheelerLimit,fourWheelerLimit,heavyWheelerLimit);
-         
+
         Console.WriteLine("Parking Lot Menu - \n");
 
         while (true)
@@ -27,8 +28,7 @@ public class Program
 
             Console.WriteLine("1. See Parking Lot current occupancy details. \n2. Park Vehicle and Issue Ticket. \n3. Un-park Vehicle. \n4. History of Tickets \n5. Exit");
             Console.Write("Your Choice :  ");
-            int SelectedMenu = Convert.ToInt16(Console.ReadLine());
-            switch (SelectedMenu)
+            switch (Convert.ToInt16(Console.ReadLine()))
             {
                 case 1:
                     Operations.SlotDetails();

@@ -39,7 +39,5 @@ namespace Parking_lot.Modals
             Avalibility = avalibility;
             SlotPosition = slotPosition;
         }
-
-
     }
 }

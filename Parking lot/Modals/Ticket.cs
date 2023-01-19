@@ -13,15 +13,14 @@ namespace Parking_lot.Modals
     {
         
         public string SlotID { get; set; } = "";
-        public TimeSpan InTime { get; set; } = DateTime.Now.TimeOfDay;
-        public TimeSpan? OutTime { get; set; }
+        public DateTime InTime { get; set; } = DateTime.Now;
+        public DateTime OutTime { get; set; } = DateTime.Parse("00:00:00");
 
         private string _TicketId;
         
         public Vehicle vehicle;
         public string TicketId
-        {
-            get
+        { get
             {
                 if (vehicle.VehicleType == VechicleType.TwoWheeler && vehicle.VehicleNumber != "")
                 {
