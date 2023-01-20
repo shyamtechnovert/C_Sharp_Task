@@ -1,26 +1,26 @@
 ﻿
-
 using ParkingLot.Services;
 
 
 public class Program
 {
-    public static void Main(string[] args)
-    {           
-        Console.WriteLine("Initializing a parking lot.\n");       
+    static void Main(string[] args)
+    {
+        var Operations = new ParkingLotInitialization();
+
+        Console.WriteLine("Initializing a parking lot.\n");        
 
         Console.WriteLine("No of spaces to be allotted for Two Wheelers : ");
-        int twoWheelerLimit = Convert.ToInt16(Console.ReadLine());
-
+        Operations.TwoWheelerLimit = Convert.ToInt16(Console.ReadLine());
 
         Console.WriteLine("No of spaces to be allotted for Four Wheelers : ");
-        int fourWheelerLimit = Convert.ToInt16(Console.ReadLine());
+        Operations.FourWheelerLimit = Convert.ToInt16(Console.ReadLine());
 
         Console.WriteLine("No of spaces to be allotted for Heavy Vehicles : ");
-        int heavyWheelerLimit = Convert.ToInt16(Console.ReadLine());
+        Operations.HeavyWheelerLimit = Convert.ToInt16(Console.ReadLine());
 
-
-        ParkingOperations Operations = new ParkingOperations(twoWheelerLimit, fourWheelerLimit, heavyWheelerLimit);
+        Operations.Initilize();
+        
 
         Console.WriteLine("Parking Lot Menu - \n");
 

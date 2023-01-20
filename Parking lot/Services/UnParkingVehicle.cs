@@ -1,25 +1,21 @@
 ﻿using ParkingLot.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ParkingLot.Interfaces;
 
 namespace ParkingLot.Services
 {
     public static class UnparkingVehicle
     {
-        public static void ClearSlot(this ParkingOperations parking, string id)
+        public static void ClearSlot(this ParkingLotInitialization parking, string id)
         {
             Ticket matchedTicket = parking.parkingTicketsIssued.Where(ticket => ticket.TicketId == id).First();
             PrintTicket.Print(matchedTicket, true);
 
-            Slot matchedSlot = parking.parkingSlots.Where(slot => slot.SlotID == matchedTicket.SlotID).First();
+            ISlot matchedSlot = parking.parkingSlots.Where(slot => slot.SlotID == matchedTicket.SlotID).First();
             matchedSlot.Avalibility = true;
         }
 
 
-        public static void UnParkVehicle(this ParkingOperations parking)
+        public static void UnParkVehicle(this ParkingLotInitialization parking)
         {
             Console.Write("Enter the Ticket Id :  ");
             string ticketId = Console.ReadLine();

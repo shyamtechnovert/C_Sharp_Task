@@ -5,7 +5,7 @@ namespace ParkingLot.Services
 {
     public static class SlotDetails
     {
-        public static int CheckingAvailability(this ParkingOperations parking,VechicleType type, bool flag)
+        public static int CheckingAvailability(this ParkingLotInitialization parking,VechicleType type, bool flag)
         {
 
             if (flag)
@@ -18,7 +18,7 @@ namespace ParkingLot.Services
             }
         }
 
-        public static void SlotAvailability(this ParkingOperations parking)
+        public static void SlotAvailability(this ParkingLotInitialization parking)
         {
             Console.WriteLine("Parking Lot Details  :  \nType             Total Slots           Remaining");
             Console.WriteLine("Two Wheeler       " + CheckingAvailability(parking,VechicleType.TwoWheeler, true) + "                     " + CheckingAvailability(parking, VechicleType.TwoWheeler, false));

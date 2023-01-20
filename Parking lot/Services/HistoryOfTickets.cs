@@ -7,7 +7,7 @@ namespace ParkingLot.Services
 {
    public static class HistoryOfTickets
    {
-        public static void LogOfTickets(this ParkingOperations parking)
+        public static void LogOfTickets(this ParkingLotInitialization parking)
         {   
 
             var checkedOutTickets = parking.parkingTicketsIssued.Where(ticket => ticket.OutTime != DateTime.Parse("00:00:00"));

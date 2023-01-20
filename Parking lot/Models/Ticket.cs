@@ -1,10 +1,9 @@
 ﻿
 using ParkingLot.Constants;
+using ParkingLot.Interfaces;
 
 namespace ParkingLot.Models
 {
-    
-
     public class Ticket
     {
         public string SlotID { get; set; } = "";
@@ -13,7 +12,7 @@ namespace ParkingLot.Models
 
         private static string _TicketId;
         
-        public Vehicle vehicle;
+        public IVehicle vehicle;
         public string TicketId
         {            
             get
@@ -35,5 +34,7 @@ namespace ParkingLot.Models
                 
             }
         }        
+
+        
     }
 }
