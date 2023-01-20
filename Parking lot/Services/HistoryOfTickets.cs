@@ -1,7 +1,7 @@
 ﻿
 
-using ParkingLot.Modals;
-using ParkingLot.Services;
+using ParkingLot.Models;
+
 
 namespace ParkingLot.Services
 {
@@ -14,12 +14,12 @@ namespace ParkingLot.Services
             var notCheckedOutTickets = parking.parkingTicketsIssued.Where(ticket => ticket.OutTime == DateTime.Parse("00:00:00"));
 
 
-            if (notCheckedOutTickets.Count() > 0)
+            if ( notCheckedOutTickets.Count() > 0 )
             {
                 Console.WriteLine("Not-Checked Out Tickets!! :- \n");
                 foreach (Ticket ticket in notCheckedOutTickets)
                 {
-                    parking.PrintTicket(ticket, false);
+                    PrintTicket.Print(ticket, false);
                 }
             }
             else
@@ -27,12 +27,12 @@ namespace ParkingLot.Services
                 Console.WriteLine("No Not-Checked Out Tickets!! \n");
             }
 
-            if (checkedOutTickets.Count() > 0)
+            if ( checkedOutTickets.Count() > 0 )
             {
                 Console.WriteLine("Checked Out Tickets :- \n");
                 foreach (Ticket ticket in checkedOutTickets)
                 {
-                    parking.PrintTicket(ticket, true);
+                    PrintTicket.Print(ticket, true);
                 }
             }
             else

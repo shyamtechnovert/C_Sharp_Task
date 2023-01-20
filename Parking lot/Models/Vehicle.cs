@@ -1,7 +1,7 @@
 ﻿using ParkingLot.Constants;
 
 
-namespace ParkingLot.Modals
+namespace ParkingLot.Models
 {
     public class Vehicle
     {
